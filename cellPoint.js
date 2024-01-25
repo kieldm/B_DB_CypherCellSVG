@@ -182,6 +182,19 @@ class CellPoint {
     }
   }
 
+  randomAdd(){
+    var thisNoise = noise(this.x * 0.0025, this.y * 0.0025, frameCount * 0.01);
+
+    if(thisNoise > 0.5){
+      var tempTicker = map(thisNoise, 0.5, 1, 0, 5);
+
+      var scatterFactor = map(thisNoise, 0.5, 1, random(3, 4), random(1,2));
+      tempTicker *= scatterFactor;
+
+      this.colorTicker += tempTicker;
+    }
+  }
+
   animAngle(){
     this.currentAng = this.pPoint * this.ang + animAng[this.rPoint];
     this.coreX = width/2 + cos(this.currentAng) * (innerRad + this.rPoint * this.rDist);
@@ -196,8 +209,8 @@ class CellPoint {
   }
 
   animColor(){
-    // this.colorTicker -= 0.6;
-    this.colorTicker -= 0.5;
+    // this.colorTicker -= 0.5;
+    this.colorTicker -= random(0.25, 0.75);
 
     if(this.colorTicker > 120){
       this.colorTicker = 120;

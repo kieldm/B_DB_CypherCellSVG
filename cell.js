@@ -19,6 +19,8 @@ class Cell {
     for(var m = 0; m <= ringCount; m++){
       for(var n = 0; n <= pieCount; n++){
         this.cellPoints[m][n].run();
+
+        this.cellPoints[m][n].randomAdd();
       }
     }
   }
