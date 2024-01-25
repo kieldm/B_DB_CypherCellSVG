@@ -172,10 +172,10 @@ class CellPoint {
     // }
 
     ////// OPT 2;
-    if(distMouse < 300){
-      var tempTicker = map(distMouse, 300, 0, 0, 2.5);
+    if(distMouse < 400){
+      var tempTicker = map(distMouse, 400, 0, 0, 2.5);
       
-      var scatterFactor = map(distMouse, 300, 0, random(0.25), random(1, 4));
+      var scatterFactor = map(distMouse, 400, 0, random(0.25), random(1, 4));
       tempTicker *= scatterFactor;
 
       this.colorTicker += tempTicker;
@@ -183,12 +183,12 @@ class CellPoint {
   }
 
   randomAdd(){
-    var thisNoise = noise(this.x * 0.0025, this.y * 0.0025, frameCount * 0.01);
+    var thisNoise = noise(this.x * 0.0035, this.y * 0.0035, frameCount * 0.01);
 
-    if(thisNoise > 0.5){
-      var tempTicker = map(thisNoise, 0.5, 1, 0, 5);
+    if(thisNoise > 0.425){
+      var tempTicker = map(thisNoise, 0.425, 1, 0, 4);
 
-      var scatterFactor = map(thisNoise, 0.5, 1, random(3, 4), random(1,2));
+      var scatterFactor = map(thisNoise, 0.425, 1, random(3, 4), random(1,2));
       tempTicker *= scatterFactor;
 
       this.colorTicker += tempTicker;
