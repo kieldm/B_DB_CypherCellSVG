@@ -29,7 +29,8 @@ class CellPoint {
 
     this.fColor = color("#000000");
 
-    this.colorTicker = 0;
+    var distTk = dist(width/2, height/2, this.x, this.y);
+    this.colorTicker = map(distTk, 0, outerRad * 1.2, 120, 0) + random(-30, 30);
 
     this.label = false;
     if(random(10) < 1){
@@ -210,7 +211,8 @@ class CellPoint {
 
   animColor(){
     // this.colorTicker -= 0.5;
-    this.colorTicker -= random(0.25, 0.75);
+    this.colorTicker -= random(0.25, 0.85);
+    // this.colorTicker -= 2;
 
     if(this.colorTicker > 120){
       this.colorTicker = 120;

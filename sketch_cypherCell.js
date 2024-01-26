@@ -27,6 +27,8 @@ function preload(){
 function setup(){
   createCanvas(windowWidth,windowHeight);
 
+  noCursor();
+
   bkgdColor = color('#000000');
   foreColor = color('#ffffff');  
 
@@ -94,7 +96,7 @@ function draw() {
     save("decodingBio.svg");
     exportOn = false;
 
-    resizeCanvas(windowWidth,windowHeight);
+    window.location.reload();
   }
 }
 
@@ -110,7 +112,8 @@ function animateCypher(){
   for(var m = 0; m < ringCount; m++){
     if(animAngTicker[m] > 0){
       var tk0 = map(animAngTicker[m], animAngWindow[m], 0, 0, 1);
-      animAng[m] = map(easeInOutExpo(tk0), 0, 1, animAngHold[m], animAngTarget[m]);
+      // animAng[m] = map(easeInOutExpo(tk0), 0, 1, animAngHold[m], animAngTarget[m]);
+      animAng[m] = map(easeInOutQuint(tk0), 0, 1, animAngHold[m], animAngTarget[m]);
 
       animAngTicker[m] --;
     }
